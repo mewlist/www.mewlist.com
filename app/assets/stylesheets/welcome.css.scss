@@ -1,0 +1,75 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body { padding-top: 60px; }
+
+$navbar-bg-color: #435043;
+$navbar-bg-color-to: #304030;
+$mewlist-green-bg: #308030;
+$mewlist-green: #95FF7F;
+.navbar-inverse {
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from($navbar-bg-color), to($navbar-bg-color-to));
+  background-image: -webkit-linear-gradient(top, $navbar-bg-color, 0%, $navbar-bg-color-to, 100%);
+  background-image: -moz-linear-gradient(top, $navbar-bg-color 0%, $navbar-bg-color-to 100%);
+  background-image: linear-gradient(to bottom, $navbar-bg-color 0%, $navbar-bg-color-to 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+}
+/* brand color*/
+.navbar-inverse {
+  .navbar-brand,
+  .navbar-brand:hover,
+  .navbar-brand:focus {
+    color: $mewlist-green;
+  }
+}
+
+.mewlist {
+  text-color: #080808;
+
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    color: $mewlist-green;
+  }
+  .nav > .active > a,
+  .nav > .active > a:hover,
+  .nav > .active > a:focus {
+    color: $mewlist-green-bg;
+    background-color: $mewlist-green;
+  }
+  .logo {
+    height: 22px;
+    width: 27px;
+    margin-right: 8px;
+    float: left;
+    .image {
+      height: 28px;
+      width: 24px;
+      position: relative;
+      top: -4px;
+      left: 0px;
+      background-image: url('/assets/m20flat.png');
+    }
+  }
+  .sns {
+    a {
+      margin: 10px 10px 10px 10px;
+      padding: 0;
+      width: 29px;
+      height: 29px;
+      display: block;
+      float:left;
+    }
+    #facebook {
+      background-image: url('/assets/FB-f-Logo__blue_29.png');
+    }
+    #twitter {
+      background-image: url('/assets/twitter-bird-light-bgs-29.png');
+    }
+    #github {
+      background-image: url('/assets/GitHub-Mark-29px.png');
+    }
+  }
+}
+
