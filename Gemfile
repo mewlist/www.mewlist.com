@@ -45,5 +45,3 @@ gem 'capistrano', group: :development
 # gem 'debugger', group: [:development, :test]
 #
 gem "haml-rails", "~> 0.4"
-
-gem "blogit"
