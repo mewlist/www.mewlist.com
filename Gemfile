@@ -48,3 +48,7 @@ gem 'capistrano-bundler'
 #
 gem "haml-rails", "~> 0.4"
 gem 'less-rails'
+
+group :development, :test do
+    gem 'rspec-rails'
+end
