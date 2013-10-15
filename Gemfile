@@ -47,3 +47,4 @@ gem 'capistrano-bundler'
 # gem 'debugger', group: [:development, :test]
 #
 gem "haml-rails", "~> 0.4"
+gem 'less-rails'

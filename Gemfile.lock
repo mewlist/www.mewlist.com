@@ -48,6 +48,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    commonjs (0.2.7)
     erubis (2.7.0)
     execjs (2.0.2)
     haml (4.0.3)
@@ -67,6 +68,11 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.0)
     kgio (2.8.1)
+    less (2.4.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.4.2)
+      actionpack (>= 3.1)
+      less (~> 2.4.0)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -156,6 +162,7 @@ DEPENDENCIES
   haml-rails (~> 0.4)
   jbuilder (~> 1.2)
   jquery-rails
+  less-rails
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
