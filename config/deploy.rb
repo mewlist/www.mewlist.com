@@ -1,5 +1,9 @@
-set :application, 'my app name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'mewlist.com'
+set :repo_url, 'git@github.com:mewlist/mewlist.com.git'
+set :deploy_to, '~/web/mewlist.com'
+set :rbenv_type, :user
+set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_ruby_version, "2.0.0-p247"
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
@@ -17,6 +21,23 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :keep_releases, 5
 
 namespace :deploy do
+  task :assets do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute "cd #{release_path}; pwd; bundle exec rake assets:precompile"
+    end
+  end
+
+  task :start do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute "cd #{release_path}; pwd; bundle exec unicorn_rails -E production -D -c config/unicorn.rb"
+    end
+  end
+
+  task :stop do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute "kill `cat /tmp/pids/unicorn.pid`"
+    end
+  end
 
   desc 'Restart application'
   task :restart do
