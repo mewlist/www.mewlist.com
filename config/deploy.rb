@@ -23,7 +23,7 @@ set :rbenv_ruby_version, "2.0.0-p247"
 namespace :deploy do
   task :assets do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "cd #{release_path}; pwd; bundle exec rake assets:precompile"
+      execute "cd #{release_path}; pwd; RAILS_ENV=production bundle exec rake assets:precompile"
     end
   end
 
