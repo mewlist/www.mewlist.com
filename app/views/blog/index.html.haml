@@ -3,3 +3,4 @@
     .col-xs-12
       - @posts.each do |post|
         = render 'blog/post', post: post
+      = paginate @posts, window: 1, outer_window: 1
