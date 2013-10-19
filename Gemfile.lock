@@ -229,6 +229,7 @@ DEPENDENCIES
   haml-rails (~> 0.4)
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   less-rails
   rails (= 4.0.0)
   rspec-rails
