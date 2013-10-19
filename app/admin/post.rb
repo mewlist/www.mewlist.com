@@ -5,7 +5,7 @@ ActiveAdmin.register Post do
     end
 
     def permitted_params
-      params.permit post: [:title, :body]
+      params.permit post: [:title, :body, :published]
     end
   end
 
