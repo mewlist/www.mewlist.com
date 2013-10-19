@@ -1,6 +1,6 @@
 .container
   .row
-    .col-xs-12
+    .col-xs-12.posts
       - @posts.each do |post|
         = render 'blog/post', post: post
       = paginate @posts, window: 1, outer_window: 1

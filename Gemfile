@@ -56,3 +56,4 @@ end
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'kaminari'
+gem 'redcarpet'
