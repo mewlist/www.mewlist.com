@@ -12,8 +12,9 @@
       mewlist.com
   .collapse.navbar-collapse.nav-collapse
     %ul.nav.navbar-nav
-      =navbar_link_to 'Home', action: 'index'
-      =navbar_link_to 'Works', action: 'works'
+      =navbar_link_to 'Home',  controller: 'welcome', action: 'index'
+      =navbar_link_to 'Blog',  controller: 'blog',    action: 'index'
+      =navbar_link_to 'Works', controller: 'welcome', action: 'works'
     %ul.nav.navbar-nav.navbar-right
       %li.sns
         %a#facebook{title: 'Facebook', href:"http://facebook.com/mewlist", target: "_blank"}
