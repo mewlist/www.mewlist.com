@@ -2,5 +2,6 @@
   .row
     .col-xs-12.posts
       - @posts.each do |post|
-        = render 'blog/post', post: post
+        = render 'blog/post', post: post, title_link: true
+        = render 'blog/fb_like', post: post
       = paginate @posts, window: 1, outer_window: 1

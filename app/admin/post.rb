@@ -10,6 +10,6 @@ ActiveAdmin.register Post do
   end
 
   show do |post|
-    render "blog/post", post: post
+    render "blog/post", post: post, title_link: false
   end
 end
