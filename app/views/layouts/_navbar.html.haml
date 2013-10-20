@@ -13,7 +13,7 @@
   .collapse.navbar-collapse.nav-collapse
     %ul.nav.navbar-nav
       =navbar_link_to 'Home',  controller: 'welcome', action: 'index'
-      =navbar_link_to 'Blog',  controller: 'blog',    action: 'index'
+      =navbar_link_to 'Blog',  controller: 'blog',    action: 'index', match: /^\/blog(\/.*)*$/
       =navbar_link_to 'Works', controller: 'welcome', action: 'works'
     %ul.nav.navbar-nav.navbar-right
       %li.sns

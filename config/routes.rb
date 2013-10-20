@@ -8,6 +8,7 @@ MewlistCom::Application.routes.draw do
   root 'welcome#index'
   get '/works' => 'welcome#works'
   get '/blog' =>  'blog#index'
+  get '/blog/:id' =>  'blog#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
