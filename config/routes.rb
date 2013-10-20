@@ -7,9 +7,8 @@ MewlistCom::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get '/works' => 'welcome#works'
-  get '/blog' =>  'blog#index'
-  get '/blog/:id' =>  'blog#show'
-
+  get '/blog' => 'blog#index'
+  get '/blog/:id' =>  'blog#show', as: :post
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
