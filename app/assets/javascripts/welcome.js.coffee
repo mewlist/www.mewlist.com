@@ -35,10 +35,12 @@ class Router
     switch window.location.pathname
       when '/'
         console.log('welcome')
-      when '/blog'
-        if typeof FB != 'undefined'
-          FB.XFBML.parse()
-          console.log('blog')
+      else
+        switch
+          when window.location.pathname.match(/^\/blog/)
+            if typeof FB != 'undefined'
+              FB.XFBML.parse()
+              console.log('blog')
 
 
 onload = () ->
