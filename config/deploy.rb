@@ -58,4 +58,16 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
 
+  task :migrate do
+    on roles(:db), in: :sequence, wait: 5 do
+      execute "cd #{release_path}; pwd; bundle exec rake db:migrate RAILS_ENV=production"
+    end
+  end
+
+  after :published, 'deploy:symlink_sqlite'
+  task :symlink_sqlite do
+    on roles(:db), in: :sequence, wait: 5 do
+      execute "cd #{release_path}; pwd; ln -s #{shared_path}/db/production.sqlite3 db/production.sqlite3"
+    end
+  end
 end
