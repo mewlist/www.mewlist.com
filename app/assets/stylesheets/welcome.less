@@ -5,6 +5,15 @@ body {
   padding-top: 53px;
 }
 
+.opacity (@opacity: 0.5) {
+  -webkit-opacity:  @opacity;
+  -moz-opacity:   @opacity;
+  opacity:   @opacity;
+}
+
+.fadein{ .opacity(0) }
+.slidein{ margin-left: 100px }
+
 .mewlist {
   .logo {
     height: 22px;

@@ -1,7 +1,7 @@
 .contents
-  %h2.title.page-header
+  %h2.title.page-header.first.fadein.slidein.easeOut
     = link_to_unless !title_link, post.title, controller: :blog, action: :show, id: post.id
-    %small.pull-right
+    %small.pull-right.second.fadein
       .badge= post.created_at.strftime("%Y年%m月%d日 %H時%M分")
   .body
     = @markdown.render( post.body ).html_safe
