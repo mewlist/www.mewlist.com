@@ -59,9 +59,7 @@ class Router
 
 
 onload = () ->
-  setTimeout () ->
-    Router.instance().dispatch()
-  , 500
+  Router.instance().dispatch()
   setTimeout () ->
     if typeof FB != 'undefined'
       FB.XFBML.parse document.getElementById('body'), () ->
@@ -79,4 +77,6 @@ $(document).on "page:before-change", () ->
   $('.animated').stop()
 
 $(document).ready () ->
-  onload()
+  setTimeout () ->
+    onload()
+  , 500
