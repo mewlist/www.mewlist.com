@@ -76,6 +76,12 @@ onload = () ->
 $(document).on "page:load", () ->
   onload()
 
+$(document).on "page:change", () ->
+  if window.ga?
+    console.log '.'
+    ga('set', 'location', location.href.split('#')[0])
+    ga('send', 'pageview')
+
 $(document).ready () ->
   setTimeout () ->
     onload()
