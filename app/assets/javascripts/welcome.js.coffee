@@ -2,13 +2,28 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-class FadeIn
+class Animation
   ready: () ->
-    setTimeout () =>
-      @animate '.first', () =>
-        @animate '.second', () =>
-          @animate '.third', () =>
-    ,500
+      @setup()
+
+  setup: () ->
+    $(window).scroll () =>
+      @scrolling()
+    @scrolling()
+
+  scrolling: () ->
+    animation = @
+    @window_height ||= $(window).height()
+    bottom = $(window).scrollTop() + @window_height
+    $('.animate.container').each () ->
+      elem = @
+      pos = $(elem).offset().top
+      if bottom > pos
+        $(elem).removeClass('animate')
+        $(elem).addClass('animated')
+        animation.animate $('.animate.first', elem), () =>
+          animation.animate $('.animate.second', elem), () =>
+            animation.animate $('.animate.third', elem), () =>
 
   animate: (selector, callback) ->
     $(selector).each () ->
@@ -21,9 +36,9 @@ class FadeIn
             attrs['opacity'] = 1
           when 'slidein'
             attrs['margin-left'] = 0
-          when 'easeOut'
+          when 'easeout'
             easing = 'easeOutCubic'
-      $(@).animate(attrs, 500, easing, callback)
+      $(@).animate(attrs, 700, easing, callback)
 
 class Router
   @instance: () ->
@@ -31,7 +46,7 @@ class Router
     @router
 
   dispatch: () ->
-    (new FadeIn).ready()
+    (new Animation).ready()
     switch window.location.pathname
       when '/'
         console.log('welcome')
@@ -47,12 +62,16 @@ onload = () ->
   Router.instance().dispatch()
 
 $(document).on "page:load", () ->
-  onload()
+  setTimeout () =>
+    onload()
+  ,1000
 
 $(document).on "page:before-change", () ->
-  $('.first').stop()
-  $('.second').stop()
-  $('.third').stop()
+  $('.animated').stop()
+  $('.animated').stop()
+  $('.animated').stop()
 
 $(document).ready () ->
-  onload()
+  setTimeout () =>
+    onload()
+  ,2000
