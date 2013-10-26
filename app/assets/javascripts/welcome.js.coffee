@@ -24,8 +24,10 @@ class Animation
         animation.animate $('.animate.first', elem), () =>
           animation.animate $('.animate.second', elem), () =>
             animation.animate $('.animate.third', elem), () =>
+              animation.animate $('.animate.termination', elem), () =>
 
   animate: (selector, callback) ->
+    callback() if $(selector).length == 0
     $(selector).each () ->
       attrs = {}
       easing = "linear"
@@ -53,18 +55,23 @@ class Router
       else
         switch
           when window.location.pathname.match(/^\/blog/)
-            if typeof FB != 'undefined'
-              FB.XFBML.parse()
-              console.log('blog')
+            console.log('blog')
 
 
 onload = () ->
-  Router.instance().dispatch()
+  setTimeout () ->
+    Router.instance().dispatch()
+  , 500
+  setTimeout () ->
+    if typeof FB != 'undefined'
+      FB.XFBML.parse document.getElementById('body'), () ->
+        console.log 'hoge'
+    else
+      initFacebook(document, 'script', 'facebook-jssdk')
+  , 1900
 
 $(document).on "page:load", () ->
-  setTimeout () =>
-    onload()
-  ,1000
+  onload()
 
 $(document).on "page:before-change", () ->
   $('.animated').stop()
@@ -72,6 +79,4 @@ $(document).on "page:before-change", () ->
   $('.animated').stop()
 
 $(document).ready () ->
-  setTimeout () =>
-    onload()
-  ,2000
+  onload()
