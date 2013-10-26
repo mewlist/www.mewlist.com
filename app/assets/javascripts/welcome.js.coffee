@@ -60,21 +60,21 @@ class Router
 
 onload = () ->
   Router.instance().dispatch()
-  setTimeout () ->
+  fbt = setTimeout () ->
     if typeof FB != 'undefined'
       FB.XFBML.parse document.getElementById('body'), () ->
-        console.log 'hoge'
     else
       initFacebook(document, 'script', 'facebook-jssdk')
   , 1900
 
+  $(document).on "page:before-change", ()->
+    clearTimeout(fbt)
+    $('.animated').stop()
+    $(document).off "page:before-change"
+
+
 $(document).on "page:load", () ->
   onload()
-
-$(document).on "page:before-change", () ->
-  $('.animated').stop()
-  $('.animated').stop()
-  $('.animated').stop()
 
 $(document).ready () ->
   setTimeout () ->
