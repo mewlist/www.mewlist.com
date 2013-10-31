@@ -11,5 +11,6 @@
  *= require_self
  *= require bootstrap/bootstrap
  *= require welcome
+ *= require blog
  * require_tree .
  */

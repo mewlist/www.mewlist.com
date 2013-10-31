@@ -10,13 +10,15 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,
 //Edge binding end
 Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","stop",function(sym,e){sym.setVariable('playing',false);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){var width=$('body').width();console.log(width);if(width<550){$('body').css({zoom:width/550.0*100+'%'});}
-sym.setVariable("Amount",0);sym.play();sym.setVariable("playing",true);});
+Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){sym.setVariable("Amount",0);sym.play();sym.setVariable("playing",true);});
 //Edge binding end
 Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","complete",function(sym,e){var amountText=sym.$("Amount");var amount=sym.getVariable("Amount")+1;sym.setVariable("Amount",amount);amountText.html(amount);sym.getSymbol("Call").play('Start');function setBlur(elem,px){var blur="blur("+px+"px)";elem.css({'-webkit-filter':blur});elem.css({'-moz-filter':blur});elem.css({'-o-filter':blur});elem.css({'-ms-filter':blur});elem.css({'filter':blur});}
 setBlur(sym.$("Stage"),amount/10.0);setBlur(sym.$("Okawari"),amount/2.0);});
 //Edge binding end
-Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){});
+Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){var stage=sym.$("Stage");function resize(){var w;if(stage.parent())
+w=$(stage.parent()).width();else
+w=stage.width();var zoom=100.0*w/550.0;stage.css({zoom:zoom+"%"});}
+$(window).resize(resize);resize();});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
