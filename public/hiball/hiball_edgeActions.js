@@ -15,6 +15,8 @@ Symbol.bindElementAction(compId,symbolName,"document","compositionReady",functio
 Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","complete",function(sym,e){var amountText=sym.$("Amount");var amount=sym.getVariable("Amount")+1;sym.setVariable("Amount",amount);amountText.html(amount);sym.getSymbol("Call").play('Start');function setBlur(elem,px){var blur="blur("+px+"px)";elem.css({'-webkit-filter':blur});elem.css({'-moz-filter':blur});elem.css({'-o-filter':blur});elem.css({'-ms-filter':blur});elem.css({'filter':blur});}
 setBlur(sym.$("Stage"),amount/10.0);setBlur(sym.$("Okawari"),amount/2.0);});
 //Edge binding end
+Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){var width=$('body').width();console.log(width);if(width<5500){$('body').css({zoom:width/550.0*100+'%'});}});
+//Edge binding end
 })("stage");
 //Edge symbol end:'stage'
 
