@@ -17,7 +17,7 @@ setBlur(sym.$("Stage"),amount/10.0);setBlur(sym.$("Okawari"),amount/2.0);});
 //Edge binding end
 Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){var stage=sym.$("Stage");function resize(){var w;if(stage.parent())
 w=$(stage.parent()).width();else
-w=stage.width();var zoom=100.0*w/550.0;stage.css({zoom:zoom+"%"});}
+w=stage.width();var zoom=100.0*w/550.0;if(zoom>100)zoom=100;stage.css({zoom:zoom+"%"});}
 $(window).resize(resize);resize();});
 //Edge binding end
 })("stage");
