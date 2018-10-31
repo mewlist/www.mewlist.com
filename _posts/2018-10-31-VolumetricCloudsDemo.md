@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Volumetric Clouds Demo
+title: Volumetric Clouds Demo In Browser
 ---
 
 <img src="/images/DemoScene.PNG" />
