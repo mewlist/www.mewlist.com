@@ -1,41 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>mewlist.com</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
-</head>
+---
+layout: default
+---
 
-<body>
-<main>
-  <h1>mewlist</h1>
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
 
-  <h2>Products</h2>
-  <ul>
-    <li>
-      midiom
-      <a href="./midiom_133.lzh">midiom v1.33</a>
-      <a href="./midiom_133_free.lzh">midiom free v1.33</a>
-    </li>
-    </li>
-  </ul>
-  <h2>Unity Assets</h2>
-  <ul>
-    <li>
-      <a href="https://assetstore.unity.com/packages/tools/animation/b-spline-path-105412"> B-Spline Path </a>
-    </li>
-    <li>
-      Massive Clouds (coming soon)
-      <a href="./MassiveCloudsDemo/"> WebGL Demo (please use Chrome) </a>
-    </li>
-  </ul>
-  
-  <h2>Profile</h2>
-  <a href="https://twitter.com/mewlist">Twitter</a>
-  <a href="https://github.com/mewlist">github</a>
-  
-</main>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-</body>
-</html>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
 
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
