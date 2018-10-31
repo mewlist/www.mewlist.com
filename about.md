@@ -5,7 +5,7 @@ permalink: /about/
 ---
 ## mewlist
 
-Japan, Tokyo
+Tokyo, Japan
 
 ## Career
 
