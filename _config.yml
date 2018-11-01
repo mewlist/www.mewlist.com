@@ -19,7 +19,7 @@ avatar: /images/avater.jpg
 footer-links:
   dribbble:
   email:
-  facebook: mewlist
+  facebook:
   flickr:
   github: mewlist
   instagram:
@@ -30,6 +30,7 @@ footer-links:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: channel/UCFAHD4RdRQ9YX6JVcy_uAbg
   googleplus: # anything in your profile username that comes after plus.google.com/
+  unityconnect: 59113a1132b3060016aea0e6
 
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
