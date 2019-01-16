@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "MassiveClouds",
+"dataUrl": "BeyondCloudsDemo.data.unityweb",
+"asmCodeUrl": "BeyondCloudsDemo.asm.code.unityweb",
+"asmMemoryUrl": "BeyondCloudsDemo.asm.memory.unityweb",
+"asmFrameworkUrl": "BeyondCloudsDemo.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
